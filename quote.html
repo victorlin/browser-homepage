@@ -1,0 +1,50 @@
+<!-- a simple page that displays a random quote.
+
+powered by the Forismatic API¹ and inspired by JamesG on StackOverflow².
+
+¹ <https://forismatic.com/en/api/>
+² <https://stackoverflow.com/a/39239874>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>'</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div>
+        <p id="quote"></p>
+        <p id="author"></p>
+    </div>
+</body>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #quote {
+        max-width: 40em;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var getQuote = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?';
+        $.getJSON(getQuote, function (data) {
+            $('#quote').text(data.quoteText);
+            $('#author').text(`– ${data.quoteAuthor}`);
+        });
+    });
+</script>
+
+</html>
