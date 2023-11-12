@@ -39,7 +39,7 @@ powered by the Forismatic API¹ and inspired by JamesG on StackOverflow².
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     $(function () {
-        var getQuote = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?';
+        var getQuote = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?';
         $.getJSON(getQuote, function (data) {
             $('#quote').text(data.quoteText);
             $('#author').text(`– ${data.quoteAuthor}`);
